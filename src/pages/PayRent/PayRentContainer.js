@@ -47,7 +47,7 @@ const PayRentContainer = () => {
 		}
 	}
 	function _handleBack() {
-		setActiveStep(activeStep - 1);
+		setActiveStep(activeStep - 1 < 0 ? 0 : activeStep - 1);
 	}
 
 	const stepperClicked = (selectedIndex) => {
