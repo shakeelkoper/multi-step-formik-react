@@ -1,43 +1,61 @@
 import React from "react";
-import { H2 } from "ui-neumorphism";
 import { Grid, Typography } from "@material-ui/core";
 import { InputField } from "../../../../common/components/FormFields";
-import { useForm } from "react-hook-form";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import { states } from "../../../../common/components/stateList";
 
 const BasicDetails = (props) => {
 	const {
 		formField: { fullName, phoneNumber, email },
 	} = props;
-	const { register} = useForm();
+	const defaultProps = {
+		options: states,
+		getOptionLabel: (option) => option.title,
+	};
+
 	return (
 		<React.Fragment>
-			<H2>Basic Details</H2>
-			<div className="row">
-				<div className="col-xs-12">
+			<Typography variant="h2" gutterBottom>
+				Basic Details
+			</Typography>
+			<Grid container spacing={3}>
+				<Grid item xs={12} md={12}>
 					<InputField
 						type="text"
 						name={fullName.name}
 						label={fullName.label}
-						ref={register}
 					/>
-				</div>
-				<div className="col-xs-12">
+				</Grid>
+				<Grid item xs={12} md={12}>
 					<InputField
 						type="number"
 						name={phoneNumber.name}
 						label={phoneNumber.label}
-						ref={register}
 					/>
-				</div>
+				</Grid>
 				<Grid item xs={12} md={12}>
 					<InputField
 						type="email"
 						name={email.name}
 						label={email.label}
-						ref={register}
 					/>
 				</Grid>
-			</div>
+				<Grid item xs={12} md={12}>
+					<Autocomplete
+						{...defaultProps}
+						id="clear-on-escape"
+						clearOnEscape
+						renderInput={(params) => (
+							<TextField
+								{...params}
+								label="State where property is located"
+								margin="normal"
+							/>
+						)}
+					/>
+				</Grid>
+			</Grid>
 		</React.Fragment>
 	);
 };
