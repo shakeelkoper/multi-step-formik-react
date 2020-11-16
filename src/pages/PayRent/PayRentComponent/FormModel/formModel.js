@@ -16,6 +16,11 @@ export default {
 			label: "Email",
 			requiredErrorMsg: "Email is required",
 		},
+		state: {
+			name: "state",
+			label: "State where property is located",
+			requiredErrorMsg: "State name is required",
+		},
 		landLordName: {
 			name: "landLordName",
 			label: "Landlord's Name",

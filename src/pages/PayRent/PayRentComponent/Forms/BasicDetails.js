@@ -1,18 +1,14 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
-import { InputField } from "../../../../common/components/FormFields";
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import { states } from "../../../../common/components/stateList";
-
+import {
+	InputField,
+	AutoComplete,
+	Select,
+} from "../../../../common/components/FormFields";
 const BasicDetails = (props) => {
 	const {
-		formField: { fullName, phoneNumber, email },
+		formField: { fullName, phoneNumber, email, state },
 	} = props;
-	const defaultProps = {
-		options: states,
-		getOptionLabel: (option) => option.title,
-	};
 
 	return (
 		<React.Fragment>
@@ -41,19 +37,11 @@ const BasicDetails = (props) => {
 						label={email.label}
 					/>
 				</Grid>
+				{/* <Grid item xs={12} md={12}>
+					<AutoComplete name={state.name} label={state.label} />
+				</Grid> */}
 				<Grid item xs={12} md={12}>
-					<Autocomplete
-						{...defaultProps}
-						id="clear-on-escape"
-						clearOnEscape
-						renderInput={(params) => (
-							<TextField
-								{...params}
-								label="State where property is located"
-								margin="normal"
-							/>
-						)}
-					/>
+					<Select name={state.name} label={state.label} />
 				</Grid>
 			</Grid>
 		</React.Fragment>

@@ -6,7 +6,7 @@ import {
 import blue from "@material-ui/core/colors/blue";
 let theme = createMuiTheme({
 	palette: {
-		type: "light",
+		type: "dark",
 		primary: blue,
 	},
 });
@@ -20,6 +20,7 @@ const useStyle = makeStyles(() => ({
 		color: theme.palette.text.primary,
 	},
 	paper: {
+		backgroundColor: theme.palette.background.default,
 		// padding: theme.spacing(2),
 	},
 }));
