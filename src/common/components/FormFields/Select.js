@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
+import FormControl from "@material-ui/core/FormControl";
 import MenuItem from "@material-ui/core/MenuItem";
 import { states } from "../../components/stateList";
 import { useField } from "formik";
@@ -21,7 +22,7 @@ const SelectField = (props) => {
 	}
 
 	return (
-		<React.Fragment>
+		<FormControl error={meta.touched && meta.error && true}>
 			<InputLabel id="select-label">{props.label}</InputLabel>
 			<Select
 				labelId="select-label"
@@ -29,7 +30,6 @@ const SelectField = (props) => {
 				value={state}
 				onChange={handleChange}
 				name={props.name}
-				error={meta.touched && meta.error && true}
 				helperText={_renderHelperText()}
 				{...field}
 				{...rest}
@@ -42,7 +42,7 @@ const SelectField = (props) => {
 					);
 				})}
 			</Select>
-		</React.Fragment>
+		</FormControl>
 	);
 };
 
