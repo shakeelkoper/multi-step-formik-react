@@ -21,6 +21,11 @@ export default {
 			label: "State where property is located",
 			requiredErrorMsg: "State name is required",
 		},
+		city: {
+			name: "city",
+			label: "City where property is located",
+			requiredErrorMsg: "City name is required",
+		},
 		landLordName: {
 			name: "landLordName",
 			label: "Landlord's Name",

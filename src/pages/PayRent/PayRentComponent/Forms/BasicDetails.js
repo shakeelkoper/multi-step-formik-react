@@ -7,7 +7,7 @@ import {
 } from "../../../../common/components/FormFields";
 const BasicDetails = (props) => {
 	const {
-		formField: { fullName, phoneNumber, email, state },
+		formField: { fullName, phoneNumber, email, state, city },
 	} = props;
 
 	return (
@@ -37,11 +37,15 @@ const BasicDetails = (props) => {
 						label={email.label}
 					/>
 				</Grid>
-				{/* <Grid item xs={12} md={12}>
-					<AutoComplete name={state.name} label={state.label} />
-				</Grid> */}
 				<Grid item xs={12} md={12}>
 					<Select name={state.name} label={state.label} />
+				</Grid>
+				<Grid item xs={12} md={12}>
+					<InputField
+						type="text"
+						name={city.name}
+						label={city.label}
+					/>
 				</Grid>
 			</Grid>
 		</React.Fragment>

@@ -7,6 +7,7 @@ const {
 		phoneNumber,
 		email,
 		state,
+		city,
 		landLordName,
 		landLordNumber,
 		ifsc,
@@ -22,6 +23,7 @@ export default [
 		),
 		[email.name]: Yup.string().required(`${email.requiredErrorMsg}`),
 		[state.name]: Yup.string().required(`${state.requiredErrorMsg}`),
+		[city.name]: Yup.string().required(`${city.requiredErrorMsg}`),
 	}),
 	Yup.object().shape({
 		[landLordName.name]: Yup.string().required(
