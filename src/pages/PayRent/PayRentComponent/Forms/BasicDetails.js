@@ -2,13 +2,28 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import {
 	InputField,
-	AutoComplete,
 	Select,
+	RadioButtonsGroup,
 } from "../../../../common/components/FormFields";
 const BasicDetails = (props) => {
 	const {
 		formField: { fullName, phoneNumber, email, state, city },
 	} = props;
+	const radioConf = {
+		formLabel: "Gender",
+		ariaLabel: "gender",
+		groupName: "gender",
+		options: [
+			{
+				value: "female",
+				label: "Female",
+			},
+			{
+				value: "male",
+				label: "Male",
+			},
+		],
+	};
 
 	return (
 		<React.Fragment>
@@ -46,6 +61,9 @@ const BasicDetails = (props) => {
 						name={city.name}
 						label={city.label}
 					/>
+				</Grid>
+				<Grid item xs={12} md={12}>
+					<RadioButtonsGroup radioConf={radioConf} />
 				</Grid>
 			</Grid>
 		</React.Fragment>
